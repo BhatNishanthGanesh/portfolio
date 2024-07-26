@@ -166,8 +166,11 @@ export default function Home() {
                   </motion.button> */}
               
               <motion.a
-                  href="/BhatNishanthGanesh.pdf"
+                  href="/BNG_resume.pdf"
                   download="Nishanth_Ganesh_Resume.pdf"
+                  whileHover={{ scale: 1.015 }}
+                        whileTap={{ scale: 0.985 }}
+                        style={{x:10}}
                   className="flex bg-gradient-to-r  from-violet-600 to-indigo-600 text-white font-medium  rounded hover:opacity-90 transition-opacity items-center px-2 py-1 bg-indigo-500  w-fit  shadow-[3px_3px_0px_white] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]"
                 >
                   Download My Resume
