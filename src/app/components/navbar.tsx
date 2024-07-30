@@ -4,9 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiMail,FiCheckCircle } from "react-icons/fi";
 import emailjs from 'emailjs-com'
 
-
-
-
 const SpringModal = ({ isOpen, setIsOpen }: any) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -161,16 +158,6 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div className="flex items-center space-x-3">
           <div className="relative">
-          {/* <video 
-              src="/cd2.mp4" 
-              
-              height={50} 
-              width={50} 
-              className="transform transition-transform rounded-full duration-300 hover:scale-110" 
-              autoPlay 
-              loop 
-              muted 
-            /> */}
  <svg
   height="50"
   width="50"
