@@ -79,8 +79,6 @@
   
 }
 
-
-/* Custom scrollbar for WebKit browsers */
 ::-webkit-scrollbar {
   width: 14px; /* Width of the scrollbar */
 }
