@@ -67,3 +67,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+.active-link {
+  border-bottom: 2px solid cyan;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(0, 255, 255, 0.1);
+  color: cyan;
+  font-size: 1.1rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  
+}
+
+
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 14px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #000; /* Background color of the track */
+  border-radius: 8px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #007bff; /* Background color of the scrollbar handle */
+  border-radius: 8px; /* Rounded corners for the scrollbar handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0056b3; /* Background color of the scrollbar handle on hover */
+}
+
+/* Custom scrollbar for Firefox */
+.scrollbar {
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: #007bff #f8f9fa; /* Scrollbar color and track color */
+}

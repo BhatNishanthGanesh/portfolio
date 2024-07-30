@@ -128,27 +128,40 @@ const SpringModal = ({ isOpen, setIsOpen }: any) => {
 const Navbar = () => {
     const [isScrolled, setScrolled] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
+
     useEffect(() => {
       const handleScroll = () => {
-        const offset = window.scrollY
-        if (offset > 50) {
-          setScrolled(true)
-        } else {
-          setScrolled(false)
-        }
-      }
-      window.addEventListener('scroll', handleScroll)
+        const offset = window.scrollY;
+        setScrolled(offset > 50);
   
+        const sections = ['projects', 'achievements', 'experience'];
+        let currentSection = '';
+  
+        for (let section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 0 && rect.bottom >= 0) {
+              currentSection = section;
+              break;
+            }
+          }
+        }
+        setActiveSection(currentSection);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
       return () => {
-        window.removeEventListener('scroll', handleScroll)
-      }
-    }, [])
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
   return (
     <div className={`fixed w-full  shadow-md z-50  ${isScrolled ? 'bg-slate-900 bg-opacity-70' : 'bg-slate-900 bg-opacity-100'}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div className="flex items-center space-x-3">
           <div className="relative">
-          <video 
+          {/* <video 
               src="/cd2.mp4" 
               
               height={50} 
@@ -157,17 +170,86 @@ const Navbar = () => {
               autoPlay 
               loop 
               muted 
-            />
+            /> */}
+ <svg
+  height="50"
+  width="50"
+  className="transform transition-transform rounded-full duration-300 hover:scale-110"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style={{ stopColor: 'rgba(50, 50, 50, 0.8)', stopOpacity: 1 }} />
+      <stop offset="100%" style={{ stopColor: 'rgba(0, 0, 0, 0.8)', stopOpacity: 1 }} />
+    </linearGradient>
+    <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style={{ stopColor: 'rgba(255, 255, 255, 0.2)', stopOpacity: 1 }} />
+      <stop offset="100%" style={{ stopColor: 'rgba(0, 0, 0, 0.4)', stopOpacity: 1 }} />
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" floodColor="rgba(0, 0, 0, 0.5)" />
+    </filter>
+  </defs>
+  <circle cx="12" cy="12" r="12" fill="url(#grad1)" stroke="rgba(0, 0, 0, 0.3)" strokeWidth="2"/>
+  <path
+    d="M8.5 9l-3.5 3 3.5 3"
+    stroke="white"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ filter: 'url(#shadow)' }}
+  />
+  <path
+    d="M15.5 9l3.5 3-3.5 3"
+    stroke="white"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ filter: 'url(#shadow)' }}
+  />
+  <path
+    d="M12 16v-8"
+    stroke="white"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ filter: 'url(#shadow)' }}
+  />
+</svg>
+
+
+
           </div>
           <span className="text-white text-sm font-bold lg:text-4xl hidden lg:block">
             BNG
           </span>
         </div>
+        <div className='border border-cyan-400 bg-slate-800 shadow-lg p-2 space-x-5 rounded-full hidden sm:block'>
+      <a
+        href="#projects"
+        className={`text-white text-md  ${activeSection === 'projects' ? 'active-link' : ''}`}
+      >
+        Projects
+      </a>
+      <a
+        href="#achievements"
+        className={`text-white text-md ${activeSection === 'achievements' ? 'active-link' : ''}`}
+      >
+        Achievements
+      </a>
+      <a
+        href="#experience"
+        className={`text-white text-md  ${activeSection === 'experience' ? 'active-link' : ''}`}
+      >
+        Experience
+      </a>
+    </div>
+
+
         <div className="flex items-center space-x-4">
-          {/* <button className="group bg-black relative min-h-[50px] w-40 overflow-hidden border border-purple-500 hover:text-purple-500 shadow-2xl transition-all before:absolute rounded-lg before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-purple-500 before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-purple-500 after:duration-500 text-white hover:before:h-full hover:after:h-full">
-            <span className="top-0 flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 before:bg-purple-500 before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 after:bg-purple-500 after:duration-500 hover:text-white group-hover:before:h-full group-hover:after:h-full"></span>
-            <span className="absolute bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full items-center justify-center group-hover:text-white">Get In Touch</span>
-          </button> */}
+            
            <div className="px-4 grid place-content-center">
       <button
         onClick={() => setIsOpen(true)}
