@@ -1,14 +1,21 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaTrophy, FaCertificate } from "react-icons/fa";
 import { GiDiamondTrophy } from "react-icons/gi";
 import { TbCertificate } from "react-icons/tb";
 import { Badge } from "@/components/ui/badge";
 import SkeletonLoader from "@/app/loading";
+import { FaCode } from "react-icons/fa";
 
 
 const achievements = [
+  {
+  title: "Knight Badge – LeetCode (Max Rating: 1860)",
+  description: "Achieved Knight rank on LeetCode with a peak rating of 1860 by solving 500+ Data Structures and Algorithms problems across multiple difficulty levels.",
+  date: "December 2025",
+  icon: <FaCode className="text-5xl" />,
+  members: []
+},
   {
     title: "Won 3rd place in SOSC DEVHOST",
     description: "Upskills is a platform that helps educational institutions stay updated with current market trends. It provides insights by gathering alumni feedback and scraping LinkedIn for the latest subjects, ensuring curricula are aligned with industry needs.",

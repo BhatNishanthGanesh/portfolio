@@ -1,40 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import SkeletonLoader from "@/app/loading"; // Adjust the path if necessary
+import SkeletonLoader from "@/app/loading"; 
 
 const experiences = [
   {
-    title: "Student Intern",
+    title: "Cloud Engineer",
+    company: "LTM",
+    duration: "July 2025 - Present",
+    icon: "/LTM.png",
+  },
+  {
+    title: "Web Developer Intern",
+    company: "NijaVenture",
+    duration: "February 2025 - June 2025",
+    icon: "/NijaVenture.png",
+  },
+  {
+    title: "Web Developer Intern",
     company: "PaceWisdom",
-    duration: "July 2024 - Present",
+    duration: "July 2024 - December 2024",
     icon: "/pace.jpg",
+  },
+  {
+    title: "Freelancer",
+    company: "Self Employed",
+    duration: "Mar 2024 - June 2025",
+    icon: "/Freelancer.png",
   },
   {
     title: "Web Dev",
     company: "Challengers",
-    duration: "Jan 2022 - Present",
+    duration: "Jan 2022 - June 2025",
     icon: "/challenger.png",
   },
-  {
-    title: "Freelancer",
-    company: "Uptown Reservations",
-    duration: "Mar 2024 - Apr 2024",
-    icon: "/uptown.png",
-  },
-  {
-    title: "Freelancer",
-    company: "Parika Coastal Village",
-    duration: "Mar 2024 - Apr 2024",
-    icon: "/parika2.png",
-  },
-  {
-    title: "Student Intern",
-    company: "Tetherfi",
-    duration: "Nov 2023 - Dec 2023",
-    icon: "/tetherfi_logo.jpg",
-  },
-  // Add more experience entries here
 ];
 
 const Experience = () => {
